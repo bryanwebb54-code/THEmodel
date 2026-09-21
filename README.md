@@ -11,3 +11,7 @@ master_tracker_database.db
 __pycache__/
 *.pyc
 .DS_Store
+pandas==2.2.2
+numpy==1.26.4
+requests==2.32.3
+beautifulsoup4==4.12.3
