@@ -1,4 +1,10 @@
 # THEmodel
+pandas==2.2.2
+numpy==1.26.4
+requests==2.32.3
+beautifulsoup4==4.12.3
+streamlit==1.35.0
+
 # Block private settings and passwords
 .env
 secret_tokens.json
