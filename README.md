@@ -40,3 +40,31 @@ if __name__ == "__main__":
         rest_factor = -0.5,          # MINUS: Minor travel fatigue post-FIBA
         defense_factor = 1.0         # PLUS: Opponent lacks elite early rim protection
     )
+# NFL Alternative 1st Quarter Rushing Calculator
+
+def project_nfl_1q_rushing(player_name, projected_team_plays, backfield_touch_share, yards_per_carry_matchup):
+    """
+    Projects 1st-quarter rushing yardage based on opening drive play counts and blocking leverage.
+    """
+    # Step 1: Calculate how many carries the player gets in the opening 10-12 scripted plays
+    projected_carries = projected_team_plays * backfield_touch_share
+    
+    # Step 2: Multiply carries by the expected yardage efficiency against the opposing defensive line
+    projected_yards = projected_carries * yards_per_carry_matchup
+    
+    print(f"--- NFL 1Q Rushing Projection for {player_name} ---")
+    print(f"Projected Opening Script Carries: {round(projected_carries, 1)}")
+    print(f"Projected 1Q Yards: {round(projected_yards, 1)} Yards")
+    
+    return round(projected_yards, 1)
+
+# --- Live Verification Sandbox ---
+# Testing Breece Hall's alternate line volume anchor:
+if __name__ == "__main__":
+    project_nfl_1q_rushing(
+        player_name = "Breece Hall",
+        projected_team_plays = 12.0,      # Average plays executed in the 1st quarter
+        backfield_touch_share = 0.45,     # Commands 45% of early offensive touches
+        yards_per_carry_matchup = 4.2     # Projected ground efficiency against opposing defensive front
+    )
+
