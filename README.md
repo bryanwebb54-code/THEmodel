@@ -67,4 +67,38 @@ if __name__ == "__main__":
         backfield_touch_share = 0.45,     # Commands 45% of early offensive touches
         yards_per_carry_matchup = 4.2     # Projected ground efficiency against opposing defensive front
     )
+    # Multi-Sport Parlay Ticket Grader
+
+def evaluate_bet_edge(player_name, sportsbook_line, model_projection, bet_type="OVER"):
+    """
+    Compares oddsmaker lines against model metrics to output a strategic safety grade.
+    """
+    # Calculate the percentage difference between the book's line and your calculation
+    if bet_type == "OVER":
+        edge = model_projection - sportsbook_line
+    else:
+        edge = sportsbook_line - model_projection
+        
+    # Grade Evaluation Matrix
+    if edge >= 1.5:
+        grade = "A (Elite Model Advantage - High Expected Value)"
+    elif edge >= 0.5:
+        grade = "B (Consistent Script Play - Standard Value)"
+    else:
+        grade = "C (High Volatility Sweat - Avoid or Lower Units)"
+        
+    print(f"Bet: {player_name} | Book Line: {sportsbook_line} | Model Projection: {model_projection}")
+    print(f"Calculated Edge: {round(edge, 2)} | System Grade: {grade}\n")
+    return grade
+
+# --- Test Ticket Run ---
+if __name__ == "__main__":
+    print("--- RUNNING PARLAY REPORT CARD SIMULATION ---\n")
+    # Test Leg 1
+    evaluate_bet_edge("Breece Hall 1Q Rushing Yards", 14.5, 22.6, "OVER")
+    # Test Leg 2
+    evaluate_bet_edge("Aliyah Boston 1Q Points", 3.5, 5.1, "OVER")
+    # Test Leg 3
+    evaluate_bet_edge("Kayla McBride 1Q Points", 2.5, 1.8, "UNDER")
+
 
