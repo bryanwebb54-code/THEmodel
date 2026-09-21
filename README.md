@@ -1,4 +1,6 @@
 # THEmodel
+pip install -r requirements.txt
+
 import streamlit as st
 
 # Configure the visual style of your betting command center
