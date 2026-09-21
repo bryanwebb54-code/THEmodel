@@ -1,4 +1,6 @@
 # THEmodel
+streamlit run app.py
+
 pip install -r requirements.txt
 
 import streamlit as st
